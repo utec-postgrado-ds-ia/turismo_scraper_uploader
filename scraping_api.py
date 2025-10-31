@@ -136,8 +136,8 @@ def generar_scraping():
         df.to_csv(filename, index=False)
 
         s3 = boto3.client("s3")
-        bucket_name = "turismo-raw"
-        key = f"lugar_turistico/lugares_turisticos_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+        bucket_name = "turismo-datalake-31102025"
+        key = f"raw/lugares_turisticos_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
         s3.upload_file(filename, bucket_name, key)
 
         return jsonify({
@@ -151,4 +151,5 @@ def generar_scraping():
 
 
 if __name__ == "__main__":
+
     app.run(host="0.0.0.0", port=5000)
