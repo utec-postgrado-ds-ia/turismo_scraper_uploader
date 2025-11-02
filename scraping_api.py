@@ -137,7 +137,7 @@ def generar_scraping():
 
         s3 = boto3.client("s3")
         bucket_name = "turismo-datalake-31102025"
-        key = f"raw/lugares_turisticos_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+        key = f"raw/lugar_turistico/lugares_turisticos_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
         s3.upload_file(filename, bucket_name, key)
 
         return jsonify({
